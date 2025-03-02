@@ -165,6 +165,8 @@ fc-list | grep "Fira Code"
 
 Note: Fira Code provides beautiful programming ligatures that make code more readable by combining common programming symbols into single logical tokens.
 
+font by [Nikita Prokopov](https://github.com/tonsky/FiraCode?tab=readme-ov-file)
+
 ## Additional Customization
 
 1.Install and configure Powerlevel10k theme (optional):

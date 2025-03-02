@@ -1,5 +1,7 @@
 module.exports = {
   config: {
+    webGLRenderer: false,
+
     // default font size in pixels for all tabs
     fontSize: 14,
 
@@ -19,6 +21,8 @@ module.exports = {
     pokemon: 'dewgong',
     unibody: true,
     poketab: false,
+    
+    disableLigatures: false,
   },
   // a list of plugins to fetch and install from npm
   plugins: [
@@ -26,5 +30,6 @@ module.exports = {
     'hypercwd', 
     'hyper-search', 
     'hyper-statusline',
+    'hyper-font-ligatures',
   ]
 };
