@@ -143,17 +143,27 @@ hyper i hyper-statusline
 3.Install Fira Code font (recommended):
 
 ```bash
-sudo apt update
-sudo apt install fonts-firacode
+# Make the script executable
+chmod +x install_scripts/install_firacode.sh
+
+# Run the installation script
+./install_scripts/install_firacode.sh
 ```
 
-Note: The configuration file includes several productivity-enhancing features:
+The script will:
 
-- Pokemon theme with Charmander style
-- System monitoring with Hyperline (CPU, memory, network, etc.)
-- Status line with git information
-- Quick directory navigation with hypercwd
-- Integrated search functionality
+- Create necessary font directories
+- Install Fira Code fonts from the provided files
+- Update the font cache
+- Verify the installation
+
+You can verify the fonts are installed manually:
+
+```bash
+fc-list | grep "Fira Code"
+```
+
+Note: Fira Code provides beautiful programming ligatures that make code more readable by combining common programming symbols into single logical tokens.
 
 ## Additional Customization
 
@@ -172,22 +182,3 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Restart your terminal and follow the configuration wizard
 p10k configure
 ```
-
-## Troubleshooting
-
-If you encounter font issues:
-
-1.Install Nerd Fonts:
-
-```bash
-# Download and install a Nerd Font (e.g., Meslo)
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/Meslo.zip
-unzip Meslo.zip -d ~/.local/share/fonts/
-fc-cache -fv
-```
-
-2.Update your Hyper configuration to use the new font:
-
-```javascript
-fontFamily: '"MesloLGS NF", monospace'
-``` 
