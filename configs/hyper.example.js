@@ -1,7 +1,5 @@
 module.exports = {
   config: {
-    webGLRenderer: false,
-
     // default font size in pixels for all tabs
     fontSize: 14,
 
@@ -22,6 +20,8 @@ module.exports = {
     unibody: true,
     poketab: false,
     
+    // Enable ligatures to work for Fira Code Font
+    webGLRenderer: false,
     disableLigatures: false,
   },
   // a list of plugins to fetch and install from npm
