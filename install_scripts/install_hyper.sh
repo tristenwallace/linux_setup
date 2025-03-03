@@ -9,7 +9,8 @@ echo "Installing Hyper Terminal..."
     
     # Paths for installation
     APPIMAGE_PATH="/opt/hyper.appimage"
-    ICON_PATH="$(dirname "$(dirname "$0")")/assets/hyper.png"
+    SYSTEM_ICON_PATH="/opt/hyper.png"
+    ICON_SOURCE_PATH="$(dirname "$(dirname "$0")")/assets/hyper.png"
     DESKTOP_ENTRY_PATH="/usr/share/applications/hyper.desktop"
 
     # Install curl if not installed
@@ -31,17 +32,39 @@ echo "Installing Hyper Terminal..."
     if ! sudo chmod +x "$APPIMAGE_PATH"; then
         echo "Failed to make AppImage executable."
         exit 1
+    fi 
+
+    # Copy icon to system location and update icon cache
+    echo "Installing Hyper icon..."
+    if [ -f "$ICON_SOURCE_PATH" ]; then
+        if ! sudo cp "$ICON_SOURCE_PATH" "$SYSTEM_ICON_PATH"; then
+            echo "Failed to copy icon file. Desktop icon might not display correctly."
+        else
+            # Update icon cache
+            if command -v gtk-update-icon-cache &> /dev/null; then
+                sudo gtk-update-icon-cache -f -t /usr/share/icons/hicolor
+            fi
+        fi
+    else
+        # If local icon not found, try downloading directly from Hyper
+        echo "Warning: Local icon file not found. Attempting to download..."
+        if ! sudo curl -L "https://raw.githubusercontent.com/vercel/hyper/canary/assets/icon.png" -o "$SYSTEM_ICON_PATH"; then
+            echo "Failed to download icon. Desktop icon might not display correctly."
+        fi
     fi
 
-    # Create a .desktop entry for Hyper
+    # Create a .desktop entry for Hyper with improved metadata
     echo "Creating .desktop entry for Hyper..."
     if ! sudo bash -c "cat > $DESKTOP_ENTRY_PATH" <<EOL
 [Desktop Entry]
 Name=Hyper Terminal
-Exec=$APPIMAGE_PATH --no-sandbox
-Icon=$ICON_PATH
+Exec=$APPIMAGE_PATH --no-sandbox %F
+Icon=$SYSTEM_ICON_PATH
 Type=Application
-Categories=Development;
+Categories=Development;System;TerminalEmulator;
+MimeType=text/plain;inode/directory;
+Comment=A terminal built on web technologies
+StartupWMClass=hyper
 EOL
     then
         echo "Failed to create desktop entry. You may need to create it manually."

@@ -5,7 +5,7 @@ installFiraCode() {
         echo "Installing Fira Code fonts..."
 
         # Create font directory if it doesn't exist
-        FONT_DIR="/usr/local/share/fonts/fira-code"
+        FONT_DIR="/usr/share/fonts/fira-code"
         if ! sudo mkdir -p "$FONT_DIR"; then
             echo "Failed to create font directory. Please check your permissions."
             exit 1
