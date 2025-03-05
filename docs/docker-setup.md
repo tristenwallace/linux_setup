@@ -47,8 +47,17 @@ sudo docker run hello-world
 To use Docker without sudo, add your user to the docker group:
 
 ```bash
+# Create the docker group if it doesn't exist
 sudo groupadd docker
+
+# Add your user to the docker group
 sudo usermod -aG docker $USER
+
+# Verify your user is in the docker group
+groups $USER
+
+# Apply the new group membership without logging out
+newgrp docker
 ```
 
 Log out and log back in for the changes to take effect.
