@@ -1,0 +1,59 @@
+
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# A minimal left prompt
+format = """$directory$character"""
+
+# remaining prompt on the right
+right_format = """$git_branch $git_status $terraform $nodejs $python $aws"""
+
+
+# Inserts a blank line between shell prompts
+add_newline = false
+
+# https://starship.rs/config/#package-version
+[package]
+disabled = true
+
+# https://starship.rs/config/#aws
+[aws]
+format = '[$symbol($profile)]($style)'
+
+# https://starship.rs/config/#git-branch
+[git_branch]
+symbol = "🔀 "
+format = "[$symbol$branch]($style)"
+
+# https://starship.rs/config/#git-status
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style) ) '
+untracked = '?${count}'
+ahead = '⇡${count}'
+staged = '[++\($count\)](green)'
+modified = '!${count}'
+
+# https://starship.rs/config/#python
+[python]
+symbol = "🐍 "
+format = "[$symbol$version]($style)"
+
+# https://starship.rs/config/#nodejs
+[nodejs]
+symbol = "🔍 "
+format = "[$symbol$version]($style) "
+
+# https://starship.rs/config/#terraform
+[terraform]
+symbol = "🏗️ "
+format = "[$symbol$workspace]($style)"
+
+# https://starship.rs/config/#character
+[character]
+success_symbol = '[\$](bold black)'
+error_symbol = '[\$](bold black)'
+
+# https://starship.rs/config/#directory
+[directory]
+truncate_to_repo = false
+truncation_length = 0
