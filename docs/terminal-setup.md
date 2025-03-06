@@ -44,35 +44,30 @@ sudo apt install curl git
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-## Configuring Oh My Zsh
-
-1.Install recommended plugins:
+3.Install Starship prompt:
 
 ```bash
-# Install Syntax Highlighting
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-
-# Install Autosuggestions
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+curl -fsSL https://starship.rs/install.sh | sh
 ```
 
-2.Edit your `~/.zshrc` file to enable plugins:
+## Configuring Oh My Zsh
+
+1.Move the zshrc file to the home directory:
 
 ```bash
-# Open .zshrc in your preferred editor
-nano ~/.zshrc
+mv configs/.zshrc ~
+```
 
-# Add or modify the plugins line to include:
-plugins=(
-    git
-    docker
-    docker-compose
-    npm
-    node
-    vscode
-    zsh-syntax-highlighting
-    zsh-autosuggestions
-)
+2.Move the starship.toml file to the home directory:
+
+```bash
+mv configs/starship.toml ~/.config/starship.toml
+```
+
+3.Move the aliases.zsh file to the oh-my-zsh custom directory:
+
+```bash
+mv configs/.oh-my-zsh/custom/aliases.zsh ~/.oh-my-zsh/custom/aliases.zsh
 ```
 
 ## Installing Hyper Terminal
@@ -129,17 +124,6 @@ The configuration includes:
 - Pokemon theme (Charmander)
 - Useful status line plugins
 
-2.Install the required plugins:
-
-```bash
-# Install all plugins defined in the configuration
-hyper i hyper-pokemon
-hyper i hypercwd
-hyper i hyper-search
-hyper i hyperline
-hyper i hyper-statusline
-```
-
 3.Install Fira Code font (recommended):
 
 ```bash
@@ -166,21 +150,3 @@ fc-list | grep "Fira Code"
 Note: Fira Code provides beautiful programming ligatures that make code more readable by combining common programming symbols into single logical tokens.
 
 font by [Nikita Prokopov](https://github.com/tonsky/FiraCode?tab=readme-ov-file)
-
-## Additional Customization
-
-1.Install and configure Powerlevel10k theme (optional):
-
-```bash
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-
-# Edit ~/.zshrc and set:
-ZSH_THEME="powerlevel10k/powerlevel10k"
-```
-
-2.Configure Powerlevel10k:
-
-```bash
-# Restart your terminal and follow the configuration wizard
-p10k configure
-```

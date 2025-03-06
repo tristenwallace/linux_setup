@@ -13,7 +13,7 @@ installFiraCode() {
 
         # Get the script's directory and navigate to fonts
         SCRIPT_DIR="$(dirname "$(dirname "$0")")"
-        FIRA_DIR="$SCRIPT_DIR/fonts/Fira_Code_v6.2"
+        FIRA_DIR="$SCRIPT_DIR/fonts/Fira_Code"
 
         # Check if font files exist
         if [ ! -d "$FIRA_DIR/ttf" ]; then

@@ -1,4 +1,3 @@
-
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
@@ -22,16 +21,23 @@ format = '[$symbol($profile)]($style)'
 
 # https://starship.rs/config/#git-branch
 [git_branch]
-symbol = "🔀 "
+symbol = "🌱 "
+truncation_length = 4
+truncation_symbol = "…"
 format = "[$symbol$branch]($style)"
 
 # https://starship.rs/config/#git-status
 [git_status]
 format = '([\[$all_status$ahead_behind\]]($style) ) '
-untracked = '?${count}'
-ahead = '⇡${count}'
+conflicted = "🏳"
+behind = "😰"
+diverged = "😵"
+untracked = '‍🤷‍${count}'
+ahead = '🚀${count}'
 staged = '[++\($count\)](green)'
-modified = '!${count}'
+modified = '📝${count}'
+renamed = "👅"
+deleted = "🗑"
 
 # https://starship.rs/config/#python
 [python]
@@ -40,7 +46,7 @@ format = "[$symbol$version]($style)"
 
 # https://starship.rs/config/#nodejs
 [nodejs]
-symbol = "🔍 "
+symbol = "⬢ "
 format = "[$symbol$version]($style) "
 
 # https://starship.rs/config/#terraform
@@ -50,10 +56,9 @@ format = "[$symbol$workspace]($style)"
 
 # https://starship.rs/config/#character
 [character]
-success_symbol = '[\$](bold black)'
-error_symbol = '[\$](bold black)'
+success_symbol = "[➜](bold green)"
+error_symbol = "[✗](bold red)"
 
 # https://starship.rs/config/#directory
 [directory]
-truncate_to_repo = false
-truncation_length = 0
+truncate_to_repo=false

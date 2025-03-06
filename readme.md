@@ -17,9 +17,10 @@ The following guides will walk you through setting up your development environme
 
 1. [Git and GitHub SSH Setup](docs/git-setup.md)
 2. [Terminal Setup (Zsh, Oh My Zsh, and Hyper)](docs/terminal-setup.md)
-3. [Docker Installation](docs/docker-setup.md) (coming soon)
+3. [Docker Installation](docs/docker-setup.md)
 4. [IDE Setup (VSCode and Cursor)](docs/ide-setup.md)
-5. [Database Tools (pgAdmin)](docs/database-tools.md) (coming soon)
+5. [Development Tools](docs/dev-tools.md)
+6. [Infrastructure Tools](docs/infra-tools.md)
 
 ## Directory Structure
 

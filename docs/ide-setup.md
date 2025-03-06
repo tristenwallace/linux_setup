@@ -69,3 +69,20 @@ For more information:
 
 - [VS Code Documentation](https://code.visualstudio.com/docs)
 - [Cursor Documentation](https://cursor.sh/docs)
+
+## Fonts
+
+1. Install Fira Code (if not already installed from the [terminal setup](terminal-setup.md#installing-fira-code))
+
+2. Configure Cursor IDE to use Fira Code:
+   - Open Cursor Settings (Ctrl+,)
+   - Search for "font"
+   - In "Font Family", add `'Fira Code'` at the beginning of the list
+   - Enable "Font Ligatures" for programming ligature support
+
+3. Verify the font is working:
+   - Open a code file
+   - You should see ligatures in operators like `=>`, `!=`, and `>=`
+   - The text should appear crisp and clear using Fira Code
+
+
