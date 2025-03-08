@@ -70,6 +70,16 @@ mv configs/starship.toml ~/.config/starship.toml
 mv configs/.oh-my-zsh/custom/aliases.zsh ~/.oh-my-zsh/custom/aliases.zsh
 ```
 
+4.Install additional plugins:
+
+```bash
+# Install zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+# Install fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+
 ## Installing Hyper Terminal
 
 1.Run the installation script:

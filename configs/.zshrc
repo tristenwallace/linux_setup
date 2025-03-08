@@ -5,6 +5,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # Which plugins would you like to load?
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git fzf zsh-autosuggestions)
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source $ZSH/oh-my-zsh.sh
 
