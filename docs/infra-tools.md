@@ -32,6 +32,19 @@ This guide walks through installing and configuring Terraform and AWS CLI tools.
    - Default region (e.g., us-east-1)
    - Default output format (json)
 
+## Configure workspaces
+
+```bash
+# ~/.aws/config
+[profile dev]
+role_arn = arn:aws:iam::account-id:role/role-name
+source_profile = OrganizationAccountAccessRole
+
+[profile prod]
+role_arn = arn:aws:iam::account-id:role/role-name
+source_profile = OrganizationAccountAccessRole
+```
+
 ## Terraform Installation
 
 1. Add HashiCorp GPG key:
